@@ -1,0 +1,9 @@
+name: HypixelThePit
+version: ${project.version}
+main: net.swofty.hypixelthepit.Loader
+
+commands:
+  test:
+    description: f
+  randominfotest:
+    description: f
