@@ -14,6 +14,12 @@ public interface HypixelPlayer {
 
     int getLevel();
 
+    int getGold();
+
+    String getLevelColorized();
+
+    String getGoldColorized();
+
     int getXP();
 
     String getDisplayName();
@@ -21,5 +27,7 @@ public interface HypixelPlayer {
     void setLevel(int newLevel);
 
     void setXP(int newXP);
+
+    void setGold(int newGold);
 
 }

@@ -1,7 +1,6 @@
 package net.swofty.hypixelthepit.Commands;
 
-import net.swofty.hypixelthepit.Commands.CommandList.randominfotest;
-import net.swofty.hypixelthepit.Commands.CommandList.test;
+import net.swofty.hypixelthepit.Commands.CommandList.*;
 import net.swofty.hypixelthepit.Managers.PlayerManager;
 import net.swofty.hypixelthepit.Managers.InterfacesAndEnums.HypixelPlayer;
 import org.bukkit.command.CommandSender;
@@ -18,10 +17,28 @@ public class CommandLoader {
                 test.run(player, args);
                 break;
 
-            case "randominfotest":
-                randominfotest.run(player, args);
+            case "randomleveltest":
+                randomleveltest.run(player, args);
                 break;
 
+            case "setlevel":
+                setlevel.run(player, args);
+                break;
+
+            case "setgold":
+                setgold.run(player, args);
+                break;
+
+            case "setxp":
+                setxp.run(player, args);
+                break;
+
+            case "debugholograms":
+                debugholograms.run(player, args);
+                break;
+
+            case "gmgui":
+                gmgui.run(player, args);
 
         }
     }

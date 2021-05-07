@@ -5,7 +5,7 @@ import net.swofty.hypixelthepit.Managers.Rank;
 
 import java.util.Random;
 
-public class randominfotest
+public class randomleveltest
 {
 
     public static void run(HypixelPlayer player, String[] args) {

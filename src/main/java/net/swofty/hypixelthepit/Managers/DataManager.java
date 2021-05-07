@@ -53,7 +53,22 @@ public class DataManager {
         FileConfiguration playerData = YamlConfiguration.loadConfiguration(f);
 
         try {
-            playerData.set("level", newXP);
+            playerData.set("xp", newXP);
+
+            playerData.save(f);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            Bukkit.getLogger().info("Could not edit " + player.getName() + " data");
+        }
+    }
+
+    public static void editGold(Player player, int newGold) {
+        File userdata = new File(Bukkit.getServer().getPluginManager().getPlugin("HypixelThePit").getDataFolder(), File.separator + "PlayerDatabase");
+        File f = new File(userdata, File.separator + player.getPlayer().getUniqueId() + ".yml");
+        FileConfiguration playerData = YamlConfiguration.loadConfiguration(f);
+
+        try {
+            playerData.set("gold", newGold);
 
             playerData.save(f);
         } catch (Exception exception) {
@@ -73,11 +88,13 @@ public class DataManager {
                 playerData.createSection("lastlogin");
                 playerData.createSection("level");
                 playerData.createSection("xp");
+                playerData.createSection("gold");
 
                 playerData.set("rank", "default");
                 playerData.set("lastlogin", System.currentTimeMillis());
                 playerData.set("level", "1");
                 playerData.set("xp", "0");
+                playerData.set("gold", "100");
 
                 playerData.save(f);
             } catch (Exception exception) {
@@ -99,7 +116,7 @@ public class DataManager {
         String requestedData = "err";
 
         try {
-            requestedData = playerData.getString(dataType);
+            requestedData = playerData.getString(String.valueOf(dataType));
         } catch (Exception exception) {
             exception.printStackTrace();
             Bukkit.getLogger().info("Could not get " + player.getName() + " data");

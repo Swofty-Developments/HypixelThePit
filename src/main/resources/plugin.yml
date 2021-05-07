@@ -5,5 +5,15 @@ main: net.swofty.hypixelthepit.Loader
 commands:
   test:
     description: f
-  randominfotest:
+  randomleveltest:
+    description: f
+  setlevel:
+    description: f
+  setxp:
+    description: f
+  setgold:
+    description: f
+  debugholograms:
+    description: f
+  gmgui:
     description: f
