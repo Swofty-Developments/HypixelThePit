@@ -1,21 +1,22 @@
 package net.swofty.hypixelthepit;
 
 import net.swofty.hypixelthepit.Commands.CommandLoader;
+import net.swofty.hypixelthepit.Core.Holograms;
+import net.swofty.hypixelthepit.Core.Placeholder;
 import net.swofty.hypixelthepit.Core.Runnable;
-import net.swofty.hypixelthepit.Core.Scoreboards;
 import net.swofty.hypixelthepit.Events.PlayerEvents;
+import net.swofty.hypixelthepit.GUIs.GUIsList.lobbyGUI;
+import net.swofty.hypixelthepit.GUIs.GUIsList.statsGUI;
 import net.swofty.hypixelthepit.Managers.DataManager;
-import net.swofty.hypixelthepit.Managers.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public final class Loader extends JavaPlugin implements CommandExecutor {
+public final class Loader extends JavaPlugin
+{
 
     public static Plugin plugin;
 
@@ -26,16 +27,25 @@ public final class Loader extends JavaPlugin implements CommandExecutor {
 
         Bukkit.getPluginManager().registerEvents(new PlayerEvents(), this);
 
+        Bukkit.getPluginManager().registerEvents(new lobbyGUI(), this);
+        Bukkit.getPluginManager().registerEvents(new statsGUI(), this);
+
         DataManager.initialize();
+
+        Holograms.spawnHolograms();
 
         new BukkitRunnable() {
             public void run() {
 
-                Runnable.secondRunnable();
+                Runnable.halfsecondRunnable();
 
             }
 
-        }.runTaskTimerAsynchronously(this, 20, 20);
+        }.runTaskTimer(this, 10, 10);
+
+        if(Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null){
+            new Placeholder(this).register();
+        }
     }
 
     @Override
@@ -47,4 +57,5 @@ public final class Loader extends JavaPlugin implements CommandExecutor {
     public static Plugin getInstance() {
         return plugin;
     }
+
 }

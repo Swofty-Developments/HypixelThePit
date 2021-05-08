@@ -14,6 +14,7 @@ public class PlayerManager implements HypixelPlayer {
         player = thisPlayer;
     }
 
+    @Override
     public Player getBukkitPlayer() {
         return player;
     }
@@ -104,6 +105,28 @@ public class PlayerManager implements HypixelPlayer {
     }
 
     @Override
+    public String getDisplayNameColor() {
+        String playerRank = DataManager.getData(player, "rank");
+
+        switch (playerRank) {
+            case "default":
+                return "&7" + player.getName();
+            case "vip+":
+                return "&a" + player.getName();
+            case "mvp++":
+                return "&6" + player.getName();
+            case "helper":
+                return "&9" + player.getName();
+            case "mod":
+                return "&2" + player.getName();
+            case "admin":
+                return "&c" + player.getName();
+        }
+
+        return "&7" + player.getName();
+    }
+
+    @Override
     public void setLevel(int newLevel) {
         DataManager.editLevel(player, newLevel);
     }
@@ -116,6 +139,19 @@ public class PlayerManager implements HypixelPlayer {
     @Override
     public void setGold(int newGold) {
         DataManager.editGold(player, newGold);
+    }
+
+    @Override
+    public void setData(String data, String newData) {
+        DataManager.editData(player, data, newData);
+    }
+
+    @Override
+    public String getStatus() {
+        if (DataManager.getData(player, "infight").equals("true")) {
+            return Utils.formatMessage("&cFighting");
+        }
+        return Utils.formatMessage("&aIdling");
     }
 
     @Override

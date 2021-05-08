@@ -39,6 +39,28 @@ public class CommandLoader {
 
             case "gmgui":
                 gmgui.run(player, args);
+                break;
+
+            case "lobby":
+                lobby.run(player, args);
+                break;
+
+            case "simulatekill":
+                simulatekill.run(player, args);
+                break;
+
+            case "simulatedeath":
+                simulatedeath.run(player, args);
+                break;
+
+            case "respawn":
+                respawn.run(player, args);
+                break;
+
+            case "stats":
+                stats.run(player, args);
+                break;
+
 
         }
     }

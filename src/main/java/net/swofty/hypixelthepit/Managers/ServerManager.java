@@ -8,7 +8,8 @@ import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import sun.jvm.hotspot.utilities.IntervalNode;
 
-public class ServerManager implements HypixelServer {
+public class ServerManager implements HypixelServer
+{
 
     protected Server server;
 
@@ -28,6 +29,5 @@ public class ServerManager implements HypixelServer {
             player.sendFormattedMessage(message);
         }
     }
-
 
 }

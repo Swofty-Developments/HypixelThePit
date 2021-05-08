@@ -24,10 +24,16 @@ public interface HypixelPlayer {
 
     String getDisplayName();
 
+    String getDisplayNameColor();
+
     void setLevel(int newLevel);
 
     void setXP(int newXP);
 
     void setGold(int newGold);
+
+    void setData(String data, String newData);
+
+    String getStatus();
 
 }

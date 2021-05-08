@@ -8,7 +8,8 @@ import java.util.Random;
 public class randomleveltest
 {
 
-    public static void run(HypixelPlayer player, String[] args) {
+    public static void run(HypixelPlayer player, String[] args)
+    {
 
         if (player.rankHigherOrSameThan(Rank.ADMIN)) {
 
@@ -16,7 +17,7 @@ public class randomleveltest
             int randomLevel = randomGenerator.nextInt(50) + 1;
 
             player.setLevel(randomLevel);
-            player.sendFormattedMessage("&c&lDEBUG! &fRandomized your display statistics!");
+            player.sendFormattedMessage("&c&lDEBUG! &fRandomized your level statistics!");
 
         } else {
             player.sendFormattedMessage("&cYou need ADMIN or above to do this command!");

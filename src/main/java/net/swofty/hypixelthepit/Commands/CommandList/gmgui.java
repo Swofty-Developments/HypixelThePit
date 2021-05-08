@@ -54,8 +54,6 @@ public class gmgui
             // Opens GUI
             player.getBukkitPlayer().openInventory(inv);
 
-
-
         } else {
             player.sendFormattedMessage("&cYou need ADMIN or above to do this command!");
         }

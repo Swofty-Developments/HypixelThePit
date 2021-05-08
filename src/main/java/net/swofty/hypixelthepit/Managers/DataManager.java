@@ -1,5 +1,6 @@
 package net.swofty.hypixelthepit.Managers;
 
+import net.swofty.hypixelthepit.Items.SpawnItems;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -84,17 +85,38 @@ public class DataManager {
 
         if (!f.exists()) {
             try {
+                SpawnItems.giveItems(new PlayerManager(player));
                 playerData.createSection("rank");
                 playerData.createSection("lastlogin");
                 playerData.createSection("level");
                 playerData.createSection("xp");
                 playerData.createSection("gold");
 
+                playerData.createSection("kills");
+                playerData.createSection("sword-hits");
+                playerData.createSection("arrow-shots");
+                playerData.createSection("damage-dealt");
+                playerData.createSection("streak");
+                playerData.createSection("infight");
+
+                playerData.createSection("deaths");
+                playerData.createSection("damage-taken");
+
                 playerData.set("rank", "default");
                 playerData.set("lastlogin", System.currentTimeMillis());
                 playerData.set("level", "1");
-                playerData.set("xp", "0");
-                playerData.set("gold", "100");
+                playerData.set("gold", "0");
+                playerData.set("xp", "200");
+                playerData.set("infight", "false");
+
+                playerData.set("kills", "1");
+                playerData.set("sword-hits", "0");
+                playerData.set("arrow-shots", "1");
+                playerData.set("damage-dealt", "1");
+                playerData.set("streak", "0");
+
+                playerData.set("deaths", "1");
+                playerData.set("damage-taken", "1");
 
                 playerData.save(f);
             } catch (Exception exception) {

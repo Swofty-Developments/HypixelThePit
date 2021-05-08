@@ -9,6 +9,8 @@ commands:
     description: f
   setlevel:
     description: f
+  respawn:
+    description: f
   setxp:
     description: f
   setgold:
@@ -16,4 +18,14 @@ commands:
   debugholograms:
     description: f
   gmgui:
+    description: f
+  debugnpc:
+    description: f
+  lobby:
+    description: f
+  simulatedeath:
+    description: f
+  simulatekill:
+    description: f
+  stats:
     description: f
